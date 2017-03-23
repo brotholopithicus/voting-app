@@ -1,0 +1,6 @@
+extends layout
+
+block content
+    for poll in polls
+        h2
+          a(href='/polls/' + poll._id)= poll.text

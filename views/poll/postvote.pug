@@ -1,0 +1,9 @@
+extends ../layout
+
+block content
+    p= poll.text
+    ul
+        for opt in poll.options
+            li
+              p= opt.text
+              p= opt.votes
