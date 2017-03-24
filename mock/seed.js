@@ -6,8 +6,10 @@ const db = mongoose.connection;
 db.once('open', () => console.log('connected to db'));
 
 const createUser = require('./users');
+const createNewPolls = require('./polls');
 
-createUser();
+createNewPolls();
+// createUser();
 
 function handleError(err) {
     console.log(err);

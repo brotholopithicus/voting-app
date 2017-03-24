@@ -12,11 +12,11 @@ router.get('/', (req, res, next) => {
 });
 
 /* POST new poll */
-router.post('/', (req, res, next) => {
+router.post('/new', (req, res, next) => {
     const poll = new Poll({ text: req.body.text, options: req.body.options });
     poll.save((err) => {
         if (err) return next(err);
-        res.redirect('/polls/' + poll._id);
+        return res.json(poll);
     });
 });
 

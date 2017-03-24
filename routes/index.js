@@ -11,4 +11,9 @@ router.get('/', (req, res, next) => {
     });
 });
 
+/* GET create poll */
+router.get('/createPoll', (req, res, next) => {
+    res.render('poll/create');
+});
+
 module.exports = router;
