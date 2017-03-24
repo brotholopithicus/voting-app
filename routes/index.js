@@ -12,7 +12,7 @@ router.get('/', (req, res, next) => {
 });
 
 /* GET create poll */
-router.get('/createPoll', (req, res, next) => {
+router.get('/create', (req, res, next) => {
     res.render('poll/create');
 });
 
