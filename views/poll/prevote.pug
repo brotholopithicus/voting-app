@@ -2,8 +2,9 @@ extends ../layout
 
 block content
     h2= poll.text
-    for opt in poll.options
-        form(method='POST', action='/polls/' + poll.id)
-            p #{opt.text}
-            input(type='text' name='option' value=opt.text hidden)
-            input(type='submit' value='Vote')
+    .poll-options
+        for opt in poll.options
+            .option(data-option=opt.text)
+                p= opt.text
+
+    script(src='/js/prevote.js')

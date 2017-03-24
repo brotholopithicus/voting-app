@@ -1,6 +1,7 @@
 extends layout
 
 block content
+    h1 Poll List
     for poll in polls
         h2
           a(href='/polls/' + poll._id)= poll.text

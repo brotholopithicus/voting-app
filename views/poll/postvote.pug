@@ -1,9 +1,7 @@
 extends ../layout
 
 block content
-    p= poll.text
-    ul
+    h2 Results: #{poll.text}
+    .poll-options
         for opt in poll.options
-            li
-              p= opt.text
-              p= opt.votes
+            .option #{opt.text} - #{opt.votes}

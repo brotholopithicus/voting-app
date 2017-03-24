@@ -40,7 +40,7 @@ router.post('/:id', (req, res, next) => {
         poll.voted.push(req.connection.remoteAddress);
         poll.save((err) => {
             if (err) return next(err);
-            res.redirect('/polls/' + poll._id);
+            return res.json(poll);
         });
     });
 });

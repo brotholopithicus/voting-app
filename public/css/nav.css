@@ -21,7 +21,7 @@ nav {
 .main-nav h1 {
     font-family: 'PT Mono';
     margin: 0;
-    font-size: 1.45em;
+    font-size: 1.5em;
 }
 
 .main-nav h1, .main-nav a, .nav-list a {
@@ -38,6 +38,7 @@ nav {
 
 .nav-list a {
     font-family: 'PT Sans';
+    font-size: 0.8em;
     width: 100%;
     text-align: center;
     transition: 0.2s;
@@ -69,7 +70,6 @@ nav {
     }
     h1.logo {
         flex: 1;
-        font-size: 3em;
         padding-top: 0.5em;
         padding-bottom: 0.5em;
         border-bottom: 1px solid #f4f4f4;
@@ -82,11 +82,4 @@ nav {
 
 body.fixed-nav nav {
     position: fixed;
-}
-
-a[href='/cart'] span {
-  margin-left: 5px;
-  background-color: #000;
-  padding: 0.3px 4px;
-  border-radius: 3px;
 }
