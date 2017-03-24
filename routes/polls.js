@@ -10,6 +10,7 @@ router.get('/', (req, res, next) => {
         res.json(polls);
     });
 });
+
 /* POST new poll */
 router.post('/', (req, res, next) => {
     const poll = new Poll({ text: req.body.text, options: req.body.options });
