@@ -43,7 +43,7 @@ router.post('/login', (req, res, next) => {
             if (result) {
                 const token = jwt.sign(user, process.env.SECRET, { expiresIn: '1h' });
                 res.cookie('token', token);
-                res.json({ error: false, token, user, message: 'login successful' });
+                res.redirect('/');
             } else {
                 res.json({ error: true, message: 'password does not match' });
             }
