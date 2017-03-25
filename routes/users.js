@@ -50,4 +50,16 @@ router.post('/login', (req, res, next) => {
         });
     });
 });
+
+/* POST create new user */
+router.post('/new', (req, res, next) => {
+    const user = new User({ name: req.body.name, username: req.body.username, email: req.body.email, password: req.body.password });
+    user.save((err) => {
+        if (err) return next(err);
+        const token = jwt.sign(user, process.env.SECRET, { expiresIn: '1h' });
+        res.cookie('token', token);
+        res.redirect('/');
+    });
+});
+
 module.exports = router;

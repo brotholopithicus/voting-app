@@ -18,6 +18,11 @@ router.get('/create', auth(), (req, res, next) => {
     res.render('poll/create');
 });
 
+/* GET signup page */
+router.get('/signup', (req, res, next) => {
+    res.render('signup');
+});
+
 /* GET login page */
 router.get('/login', (req, res, next) => {
     res.render('login');

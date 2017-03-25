@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 const pollSchema = new Schema({
     text: String,
     options: [{ text: String, votes: { type: Number, default: 0 } }],
-    voted: [String]
+    voted: [String],
+    author: String
 });
 
 const Poll = mongoose.model('Poll', pollSchema);
