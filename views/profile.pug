@@ -3,5 +3,7 @@ extends layout
 block content
   h2= user.name
   h2= user.email
-  for poll in user.polls
-    h2= poll.text
+  for poll in polls
+    h2
+      a(href='/polls/' + poll._id) #{poll.text} (votes: #{poll.voted.length})
+      button Remove

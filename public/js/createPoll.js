@@ -1,4 +1,5 @@
 const newPoll = document.querySelector('.newPoll');
+const newPollOptions = document.querySelector('.newPoll-options');
 const createPollButton = document.querySelector('.createPoll');
 createPollButton.addEventListener('click', createPoll);
 
@@ -10,14 +11,17 @@ let optionIndex = 1;
 function addOptionField(e) {
     console.log(e);
     optionIndex++;
+    const optionDiv = document.createElement('div');
+    optionDiv.classList.add('newPoll-option');
     const label = document.createElement('label');
     label.textContent = 'option ' + optionIndex;
     const input = document.createElement('input');
     input.id = 'option';
     input.type = 'text';
     input.name = 'option';
-    newPoll.appendChild(label);
-    newPoll.appendChild(input);
+    optionDiv.appendChild(label);
+    optionDiv.appendChild(input);
+    newPollOptions.appendChild(optionDiv);
 }
 
 function createPoll() {

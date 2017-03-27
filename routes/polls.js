@@ -3,6 +3,8 @@ const router = express.Router();
 
 const Poll = require('../models/poll');
 
+const auth = require('../mid/jwt');
+
 /* GET all polls */
 router.get('/', (req, res, next) => {
     Poll.find({}, (err, polls) => {
@@ -12,8 +14,8 @@ router.get('/', (req, res, next) => {
 });
 
 /* POST new poll */
-router.post('/new', (req, res, next) => {
-    const poll = new Poll({ text: req.body.text, options: req.body.options });
+router.post('/new', auth(), (req, res, next) => {
+    const poll = new Poll({ text: req.body.text, options: req.body.options, author: res.locals.user.username });
     poll.save((err) => {
         if (err) return next(err);
         return res.json(poll);
@@ -45,4 +47,11 @@ router.post('/:id', (req, res, next) => {
     });
 });
 
+/* DELETE poll */
+router.delete('/:id', auth(), (req, res, next) => {
+    Poll.findByIdAndRemove(req.params.id, (err) => {
+        if (err) return next(err);
+        res.json({ message: 'poll deleted' });
+    });
+});
 module.exports = router;

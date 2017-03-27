@@ -30,7 +30,10 @@ router.get('/login', (req, res, next) => {
 
 /* GET profile page */
 router.get('/profile', auth(), (req, res, next) => {
-    res.render('profile');
+    Poll.find({ author: res.locals.user.username }, (err, polls) => {
+        if (err) return next(err);
+        res.render('profile', { polls });
+    });
 });
 
 module.exports = router;

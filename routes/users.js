@@ -20,6 +20,7 @@ router.get('/', (req, res, next) => {
 
 /* GET logout user */
 router.get('/logout', (req, res, next) => {
+    res.locals.isLoggedIn = false;
     res.clearCookie('token');
     res.redirect('/');
 });
@@ -43,7 +44,9 @@ router.post('/login', (req, res, next) => {
             if (result) {
                 const token = jwt.sign(user, process.env.SECRET, { expiresIn: '1h' });
                 res.cookie('token', token);
-                res.redirect('/');
+                res.locals.isLoggedIn = true;
+                res.set('Authorization', token);
+                res.redirect('/profile');
             } else {
                 res.json({ error: true, message: 'password does not match' });
             }

@@ -2,11 +2,14 @@ extends ../layout
 
 block content
     .newPoll
-        label Question
-        input(type='text', name='text', placeholder='what would you like to ask?')
-        button#addOption +
-        label option 1
-        input(type='text', name='option')
+        .newPoll-question
+            label Question
+            input(type='text', name='text', placeholder='what would you like to ask?')
+            button#addOption +
+        .newPoll-options
+            .newPoll-option
+                label option 1
+                input(type='text', name='option')
     button.createPoll Create Poll
-      
+
     script(src='/js/createPoll.js')
