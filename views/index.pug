@@ -1,7 +1,10 @@
 extends layout
 
 block content
-    h1 Poll List
-    for poll in polls
-        h2
-          a(href='/polls/' + poll._id)= poll.text
+    if polls.length
+        h1 Poll List
+        for poll in polls
+            h2
+                a(href='/polls/' + poll._id)= poll.text
+    else
+        h1 There are no polls yet!

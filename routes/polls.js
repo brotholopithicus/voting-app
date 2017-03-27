@@ -49,9 +49,10 @@ router.post('/:id', (req, res, next) => {
 
 /* DELETE poll */
 router.delete('/:id', auth(), (req, res, next) => {
-    Poll.findByIdAndRemove(req.params.id, (err) => {
+    Poll.findOneAndRemove({ author: res.locals.user.username, _id: req.params.id }, (err, poll) => {
         if (err) return next(err);
-        res.json({ message: 'poll deleted' });
+        if (!poll) return next(Error(`This poll is not yours to tell whether it can live or die.`));
+        res.sendStatus(200);
     });
 });
 module.exports = router;
