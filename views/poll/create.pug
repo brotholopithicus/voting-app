@@ -1,15 +1,21 @@
 extends ../layout
 
+block stylesheets
+    link(rel='stylesheet', href='/css/create.css')
+
 block content
     .newPoll
+        h1 Create New Poll
         .newPoll-question
-            label Question
-            input(type='text', name='text', placeholder='what would you like to ask?')
+            label What would you like to ask?
+            input(type='text', name='text')
+        .newPoll-addOptions
+            label Add More Options
             button#addOption +
         .newPoll-options
             .newPoll-option
-                label option 1
+                label Option 1
                 input(type='text', name='option')
-    button.createPoll Create Poll
+        button.createPoll Create Poll
 
     script(src='/js/createPoll.js')

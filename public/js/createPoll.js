@@ -14,7 +14,7 @@ function addOptionField(e) {
     const optionDiv = document.createElement('div');
     optionDiv.classList.add('newPoll-option');
     const label = document.createElement('label');
-    label.textContent = 'option ' + optionIndex;
+    label.textContent = 'Option ' + optionIndex;
     const input = document.createElement('input');
     input.id = 'option';
     input.type = 'text';
@@ -32,7 +32,9 @@ function createPoll() {
     newPollData.options = options.map((option) => {
         return { text: option.value }
     });
-    postify('/polls/new', JSON.stringify(newPollData)).then(window.location = '/');
+    if (newPollData.text.length && newPollData.options.length) {
+        postify('/polls/new', JSON.stringify(newPollData)).then(window.location = '/');
+    }
 }
 
 function postify(url, data) {

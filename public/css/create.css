@@ -1,0 +1,62 @@
+.newPoll {
+    text-align: center;
+    margin-bottom: 5em;
+}
+
+.newPoll>*:not(h1) {
+    width: 75%;
+    margin: 0.5em 0;
+}
+
+.newPoll-question input {
+    width: 100%;
+}
+
+.newPoll-question {
+    padding-top: 0.5em;
+    border-top: 1px solid #000;
+}
+
+.newPoll-question, .newPoll {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.newPoll-option, .newPoll-addOptions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.newPoll-option, .newPoll-addOptions {
+    padding: 0.5em 0;
+}
+
+.newPoll-addOptions {
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+}
+
+.newPoll-options {
+    padding-bottom: 1em;
+    border-bottom: 1px solid #000;
+}
+
+button {
+    outline: none;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #639943;
+    transition: 0.4s;
+    max-width: 30%;
+    font-size: 0.5em;
+}
+
+button:hover {
+    transform: scale(1.02, 1.02);
+}
