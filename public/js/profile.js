@@ -1,6 +1,13 @@
 const removeButtons = document.querySelectorAll('button#delete');
 removeButtons.forEach(button => button.addEventListener('click', handleDelete));
 
+const editButtons = document.querySelectorAll('button#edit');
+editButtons.forEach(button => button.addEventListener('click', handleEdit));
+
+function handleEdit(e) {
+    window.location.pathname = e.target.dataset.url;
+}
+
 function handleDelete(e) {
     const checkConfirm = confirm('Are you sure?');
     if (checkConfirm) deletify(e.target.dataset.url).then(() => window.location.reload());

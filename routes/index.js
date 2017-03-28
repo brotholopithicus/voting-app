@@ -28,6 +28,11 @@ router.get('/login', (req, res, next) => {
     res.render('login');
 });
 
+/* GET edit poll page */
+router.get('/edit/:id', (req, res, next) => {
+    res.render('poll/edit');
+});
+
 /* GET profile page */
 router.get('/profile', auth(), (req, res, next) => {
     Poll.find({ author: res.locals.user.username }, (err, polls) => {

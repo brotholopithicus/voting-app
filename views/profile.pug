@@ -7,7 +7,8 @@ block content
   for poll in polls
     h2
       a(href='/polls/' + poll._id) #{poll.text} (votes: #{poll.voted.length})&nbsp;
-      button#delete(data-url='/polls/' + poll._id) X
+      button#edit.profile-button(data-url='/edit/' + poll._id) Edit
+      button#delete.profile-button(data-url='/polls/' + poll._id) X
 
 block scripts
   script(src='/js/profile.js')

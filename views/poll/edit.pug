@@ -1,0 +1,19 @@
+extends ../layout
+
+block stylesheets
+    link(rel='stylesheet', href='/css/create.css')
+
+block content
+    .newPoll
+        h1 Create New Poll
+        .newPoll-question
+            label What would you like to ask?
+            input(type='text', name='text')
+        .newPoll-addOptions
+            label Add More Options
+            button#addOption +
+        .newPoll-options
+        button.updatePoll Update Poll
+
+block scripts
+    script(src='/js/editPoll.js')
