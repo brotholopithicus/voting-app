@@ -1,11 +1,12 @@
 extends ../layout
 
 block content
-    .results
     h2 Results: #{poll.text}
-    .poll-options
-        for opt in poll.options
-            .option #{opt.text} - #{opt.votes}
+    .results-container
+        .results
+        .poll-options
+            for opt in poll.options
+                .poll-option #{opt.text} - #{opt.votes}
 
 block scripts
-  script(src='/js/results.js')
+    script(src='/js/results.js')

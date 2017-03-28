@@ -8,27 +8,22 @@ function getPollResults() {
 function displayResults(data) {
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
-    canvas.width = 800;
-    canvas.height = 600;
+    canvas.width = window.innerWidth / 2;
+    canvas.height = canvas.width * (3 / 4);
     mainDiv.appendChild(canvas);
-    ctx.fillStyle = '#000';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.strokeStyle = '#fff';
-    ctx.arc(canvas.width / 2, canvas.height / 2, canvas.height / 2, 0, 2 * Math.PI);
-    ctx.stroke();
     let last = 0;
+    let hue = 0;
     const totalVotes = data.options.reduce((acc, opt) => acc += opt.votes, 0);
-    const colors = ['#ba2222', '#394f9d', '#732b79', '#69e794', '#ffed00'];
     for (let i = 0; i < data.options.length; i++) {
         const rad = (2 * Math.PI) * (data.options[i].votes / totalVotes);
-        const percent = ((data.options[i].votes / totalVotes) * 100).toFixed(2);
+        const percent = ((data.options[i].votes / totalVotes) * 100).toFixed(1);
         ctx.beginPath();
-        ctx.fillStyle = colors[i];
+        ctx.fillStyle = `hsl(${hue}, 50%, 50%)`;
         ctx.moveTo(canvas.width / 2, canvas.height / 2);
         ctx.arc(canvas.width / 2, canvas.height / 2, canvas.height / 2, last, last + rad, false);
         ctx.lineTo(canvas.width / 2, canvas.height / 2);
         ctx.fill();
-        ctx.strokeStyle = '#fff';
+        ctx.strokeStyle = '#000';
         ctx.lineWidth = 1;
         ctx.stroke();
         ctx.closePath();
@@ -36,14 +31,18 @@ function displayResults(data) {
             ctx.save();
             ctx.translate(canvas.width / 2, canvas.height / 2);
             ctx.fillStyle = '#000';
-            ctx.font = (canvas.height / 2) / 20 + 'px Arial';
-            ctx.rotate(last + rad);
+            ctx.font = (canvas.height / 2) / 15 + 'px Arial';
+            ctx.rotate(last + (rad / 2));
             const text = `${data.options[i].text} - ${percent}%`;
             ctx.fillText(text, ctx.measureText(text).width / 2, 0);
             ctx.restore();
         }
 
         last += rad;
+        hue += 60;
+        if (hue >= 360) {
+            hue = 0;
+        }
     }
 }
 

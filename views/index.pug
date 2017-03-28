@@ -2,7 +2,7 @@ extends layout
 
 block content
     if polls.length
-        h1 Poll List
+        h1.title Poll List
         for poll in polls
             h2
                 a(href='/polls/' + poll._id)= poll.text

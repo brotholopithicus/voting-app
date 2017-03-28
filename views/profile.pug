@@ -1,12 +1,13 @@
 extends layout
 
 block content
-  h2= user.name
-  h2= user.email
+  h1.title
+    p= user.name
+    p= user.email
   for poll in polls
     h2
-      a(href='/polls/' + poll._id) #{poll.text} (votes: #{poll.voted.length})
-      button#delete(data-url='/polls/' + poll._id) Remove
+      a(href='/polls/' + poll._id) #{poll.text} (votes: #{poll.voted.length})&nbsp;
+      button#delete(data-url='/polls/' + poll._id) X
 
 block scripts
   script(src='/js/profile.js')

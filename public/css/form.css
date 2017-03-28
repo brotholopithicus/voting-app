@@ -1,7 +1,10 @@
 form {
   display: flex;
   flex-direction: column;
+  width: 60%;
+  margin: 0 auto;
 }
+
 input {
   font-size: 1em;
   margin: 0.5em;
