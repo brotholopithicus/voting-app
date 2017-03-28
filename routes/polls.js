@@ -31,6 +31,13 @@ router.get('/:id', (req, res, next) => {
     });
 });
 
+router.get('/api/:id', (req, res, next) => {
+    Poll.findById(req.params.id, (err, poll) => {
+        if (err) return next(err);
+        return res.json(poll);
+    });
+});
+
 /* POST poll vote page */
 router.post('/:id', (req, res, next) => {
     Poll.findById(req.params.id, (err, poll) => {
