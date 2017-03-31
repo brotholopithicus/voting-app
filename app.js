@@ -31,18 +31,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// const jwt = require('jsonwebtoken');
-//
-// app.use((req, res, next) => {
-//     if (!req.cookies.token) return next();
-//     jwt.verify(req.cookies.token, process.env.SECRET, (err, decoded) => {
-//         if (err) return next(err);
-//         if (!decoded) return next();
-//         res.locals.user = decoded;
-//         next();
-//     });
-// });
-
 app.use((req, res, next) => {
     if (req.cookies.token) {
         res.locals.isLoggedIn = true;

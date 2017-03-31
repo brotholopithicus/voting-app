@@ -56,7 +56,7 @@ router.post('/:id', (req, res, next) => {
 
 /* UPDATE poll */
 router.put('/:id', auth(), (req, res, next) => {
-    const updatedPoll = { text: req.body.text, options: req.body.options, author: res.locals.user.username };
+    const updatedPoll = { text: req.body.text, options: req.body.options, voted: [], author: res.locals.user.username };
     Poll.findOneAndUpdate({ author: res.locals.user.username, _id: req.params.id }, updatedPoll, { new: true }, (err, poll) => {
         if (err) return next(err);
         res.json(poll);

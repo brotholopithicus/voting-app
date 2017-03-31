@@ -1,6 +1,7 @@
 const question = document.querySelector('.newPoll-question input');
 const optionOne = document.querySelector('.newPoll-option input');
 const pollOptions = document.querySelector('.newPoll-options');
+
 const addOptionButton = document.querySelector('button#addOption');
 addOptionButton.addEventListener('click', addOptionField);
 const updateButton = document.querySelector('button.updatePoll');

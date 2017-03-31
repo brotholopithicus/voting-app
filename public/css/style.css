@@ -21,54 +21,69 @@ h2 {
     text-align: center;
 }
 
-h1.title {
-  text-align: center;
-  border-bottom: 1px solid #000;
-  margin-bottom: 0.5em;
+h2>* {
+    margin-right: 1em;
 }
-.main-container {
 
+h1.title {
+    text-align: center;
+    border-bottom: 1px solid #000;
+    margin-bottom: 0.5em;
 }
+
+.poll-list {
+    text-align: center;
+}
+
+.poll-list p {
+    font-size: 0.5em;
+}
+
+.main-container {}
 
 .results-container {
-  padding-top: 1em;
-  margin: 0 0.5em;
-  border-top: 1px solid #000;
-  display: flex;
-  flex-direction: row;
+    padding-top: 1em;
+    margin: 0 0.5em;
+    border-top: 1px solid #000;
+    display: flex;
+    flex-direction: row;
 }
+
 .poll-options {
-  font-size: 1.5em;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
+    font-size: 1.5em;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
 }
+
 button.profile-button {
-  font-size: 0.8em;
-  border-radius: 4px;
-  border: none;
-  padding: 0 0.4em;
-  cursor: pointer;
-  outline: none;
-  transition: 0.2s;
+    font-size: 0.8em;
+    border-radius: 4px;
+    border: none;
+    padding: 0 0.4em;
+    cursor: pointer;
+    outline: none;
+    transition: 0.2s;
 }
+
 button.profile-button:hover {
-  transform: scale(1.1, 1.1);
+    transform: scale(1.1, 1.1);
 }
+
 .option {
-  font-size: 0.75em;
-  color: #fff;
-  flex: 0 0 3em;
-  background-color: #2689ad;
-  padding: 0.5em 1em;
-  margin: 0.5em;
-  border-radius: 0.2em;
-  cursor: pointer;
-  width: 70%;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    font-size: 0.75em;
+    color: #fff;
+    flex: 0 0 3em;
+    background-color: #2689ad;
+    padding: 0.5em 1em;
+    margin: 0.5em;
+    border-radius: 0.2em;
+    cursor: pointer;
+    width: 70%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

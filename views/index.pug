@@ -3,8 +3,10 @@ extends layout
 block content
     if polls.length
         h1.title Poll List
-        for poll in polls
-            h2
-                a(href='/polls/' + poll._id)= poll.text
+        .poll-list
+            for poll in polls
+                h4
+                    a(href='/polls/' + poll._id) #{poll.text}
+                p created on #{poll.updatedAt.toDateString()} by #{poll.author}
     else
         h1 There are no polls yet!
